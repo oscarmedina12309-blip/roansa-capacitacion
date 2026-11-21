@@ -1,0 +1,114 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><title>ROANSA Seguridad Privada · Capacitación</title><meta name="description" content="Evaluación de capacitación para guardias de ROANSA Seguridad Privada"><meta property="og:title" content="ROANSA Seguridad Privada · Capacitación"><meta property="og:description" content="Evaluación de capacitación para guardias">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+:root{color-scheme:dark;--bg:#0b0b0d;--card:#17171b;--line:#2a2a31;--tx:#f2f2f2;--mu:#9a9aa5;--red:#d11f2a;--ok:#2fbf71;--wa:#e8a317;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,Segoe UI,sans-serif}
+main{max-width:680px;margin:auto;padding:16px}
+.logo{display:flex;align-items:center;justify-content:center;gap:12px;padding:6px 0;font-weight:800;font-size:22px;letter-spacing:1px}.logo i{color:var(--red);font-style:normal}.logo span{color:#c9c9cc;font-size:26px;line-height:1}.logo small{display:block;font-size:10px;color:var(--mu);font-weight:500;letter-spacing:2px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:12px 0}
+h2{margin:0 0 8px;font-size:18px}input,select,button{font:inherit;width:100%;padding:12px;border-radius:10px;border:1px solid var(--line);background:#0f0f12;color:var(--tx)}
+button{background:var(--red);border:0;font-weight:700;cursor:pointer;margin-top:10px}button.g{background:#26262d}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.box{background:#0f0f12;border:1px solid var(--line);border-radius:10px;padding:10px}.box span{display:block;font-size:11px;color:var(--mu);text-transform:uppercase;letter-spacing:1px}.box b{font-size:16px}
+.full{grid-column:1/-1}video{width:100%;border-radius:10px;background:#000;max-height:60vh}
+.opt{display:block;text-align:left;background:#0f0f12;border:1px solid var(--line);margin-top:8px;font-weight:500}.opt.sel{border-color:var(--red)}
+.bar{height:6px;background:var(--line);border-radius:4px;overflow:hidden}.bar i{display:block;height:100%;background:var(--red)}
+.tabs{display:flex;gap:8px}.tabs button{margin:0;background:#26262d}.tabs button.on{background:var(--red)}
+table{width:100%;border-collapse:collapse;font-size:13px}td,th{padding:6px;border-bottom:1px solid var(--line);text-align:left}.sc{overflow-x:auto}
+.pill{padding:3px 10px;border-radius:20px;font-size:12px;font-weight:700}.hide{display:none}.sir{display:flex;justify-content:center;gap:14px;margin-bottom:8px}.sir i{width:44px;height:24px;border-radius:14px 14px 4px 4px;animation:fl .45s infinite alternate}.sir i:first-child{background:#e11;box-shadow:0 0 22px #e11}.sir i:last-child{background:#16f;box-shadow:0 0 22px #16f;animation-delay:.45s}@keyframes fl{from{opacity:1}to{opacity:.15}}
+.star{position:fixed;top:-30px;pointer-events:none;z-index:50;animation:fall linear forwards}@keyframes fall{to{transform:translateY(110vh) rotate(540deg)}}
+#ov{position:fixed;inset:0;background:#000d;z-index:60;padding:16px;text-align:center;overflow:auto}#ov img{max-width:100%;border-radius:10px}.cel{text-align:center;border-color:#e8a317;background:linear-gradient(#2a1a0a,#17171b)}.cel h2{font-size:24px;color:#ffd24a}#sg div{padding:12px;border:1px solid var(--line);border-top:0;background:#0f0f12;cursor:pointer}#sg div small{display:block;color:var(--mu);font-size:12px}#sg div:first-child{border-top:1px solid var(--line);margin-top:6px;border-radius:10px 10px 0 0}#sg div:last-child{border-radius:0 0 10px 10px}
+.row{display:flex;align-items:center;gap:8px;font-size:13px;margin:6px 0}.row .n{width:110px;flex:none}.row .bar{flex:1;height:12px}
+</style></head><body><main>
+<div class="logo"><svg width="40" height="46" viewBox="0 0 425 487"><path d="M140 2L0 245h284z" fill="#c9c9cc"/><path d="M140 2h282L284 245z" fill="#c4161f"/><path d="M0 245h284L147 485z" fill="#c4161f"/><path d="M284 245l141 240H147z" fill="#c9c9cc"/></svg><div><span><i>ROA</i>NSA</span><small>SEGURIDAD PRIVADA</small></div></div>
+<div class="tabs hide" id="tabs" style="margin-top:12px"><button id="t1" class="on" onclick="tab(1)">Guardia</button><button id="t2" onclick="tab(2)">Panel supervisor</button></div>
+
+<section id="s1">
+ <div id="v-login" class="card"><h2>Identifícate</h2><input id="q" placeholder="Escribe tu nombre" autocomplete="off" oninput="filt()"><div id="sg"></div><button onclick="login()">Entrar</button></div>
+ <div id="v-info" class="card hide"><h2>Tu asignación</h2><div class="grid">
+  <div class="box full"><span>Nombre del guardia</span><b id="i-n"></b></div>
+  <div class="box"><span>Servicio</span><b id="i-s"></b></div><div class="box"><span>Zona</span><b id="i-z"></b></div>
+  <div class="box full"><span>Fecha y hora</span><b id="i-h"></b></div></div>
+  <h2 style="margin-top:16px">Video de capacitación</h2><video id="vid" controls playsinline preload="metadata" src="video.mp4" poster=""></video><p style="font-size:13px;color:var(--mu);margin:6px 0 0">¿No carga el video? <a style="color:#fff" href="video.mp4" target="_blank">Ábrelo aquí</a>.</p>
+  
+  <button onclick="startQ()">Iniciar evaluación</button></div>
+ <div id="v-quiz" class="card hide"><div class="bar"><i id="pb" style="width:0"></i></div><p id="qc" style="color:var(--mu);font-size:13px"></p><h2 id="qt"></h2><div id="qo"></div><button id="nx" onclick="next()">Siguiente</button></div>
+ <div id="v-res" class="hide"></div>
+</section>
+<section id="s2" class="hide"><div id="panel"></div></section>
+</main>
+<div id="ov" class="hide"></div>
+<script>
+let LAST;const G=`DIMSA ESPAÑA|ORIENTE|JUAREZ EFRAIN RIOS;DIMSA ESPAÑA|ORIENTE|RAZO NOE VEGA;DIMSA LEBRIJA|ORIENTE|UGALDE RODRIGO MEDRANO;DIMSA LEBRIJA|ORIENTE|ANGELES LANDA CARLOS RUBEN;POLIMERSHAPES BELLAVISTA|ORIENTE|ROJAS MONTAÑO LUIS ROJAS;POLIMERSHAPES BELLAVISTA|ORIENTE|ROCHA SANCHES FRANCISCO MARTIN;V. ERMITA|ORIENTE|PEREZ CORTES ARTURO;V. ERMITA|ORIENTE|SERRANO SALAZAR ORLANDO;V. ERMITA|ORIENTE|RAUL AGUIRRE MIRANDA;V. ERMITA|ORIENTE|SERRANO MENDOZA SERAFIN;AUSTROMEX GAVILAN|ORIENTE|RODRIGUEZ FERNADEZ JONATHAN;AUSTROMEX GAVILAN|ORIENTE|ROSAS CARLOS VARGAS;AUSTROMEX ROJO GOMEZ|ORIENTE|ALVARADO ANGEL GUTIERREZ;AUSTROMEX ROJO GOMEZ|ORIENTE|RODRIGUEZ GAYTAN ANTONIO;AUSTROMEX VICENTE GUERRERO|ORIENTE|HERNADEZ CORDOVA REYES GUILLERMO;AUSTROMEX VICENTE GUERRERO|ORIENTE|ISRAEL GONZALEZ ORTIZ;ALDISAN CENTRAL|ORIENTE|JAVIER JUARES JALPA;ALDISAN CENTRAL|ORIENTE|DANIEL ALBERTO AGUSTIN HERNANDEZ;ALDISAN CENTRAL|ORIENTE|ALBERTO GALLEGOS CORTES;ALDISAN CEDIZ|ORIENTE|LUIS RENE BONILLA VICTORIANO;ALDISAN CEDIZ|ORIENTE|CRUZ MONROY ANDRES;MUNCHER LIVERPOOL|CENTRO|CASTILLO AGUILAR ENRIQUE;MUNCHER LIVERPOOL|CENTRO|CASTRO ALCOCER HECTOR MANUEL;THERMOMIX ROMA|CENTRO|ANAYA GONZALEZ JUAN ANTONIO;CENTRO MEDICO BIOS|CENTRO|CARMELO DIAZ JIMENEZ;V. FLORIDA|CENTRO|DOMINGUEZ ARREDONDO CARLOS ABDIEL;V. FLORIDA|CENTRO|PEREZ NERIA GABRIEL;V. FLORIDA|CENTRO|IBARRA HERNÁNDEZ JOSÉ GUADALUPE;MUNCHER ALTAVISTA|CENTRO|PALOMARES ARREOLA LEONARDO;MUNCHER ALTAVISTA|CENTRO|SEVILLA CHALCHI SIMON;V. PERIFERICO|CENTRO|ESTEFANY ELIZABETH TARANGO ESTREADA;V. PERIFERICO|CENTRO|ALBERTO MIRANDA;V. PERIFERICO|CENTRO|LILIANA ROMERO LUNA;V. PERIFERICO|CENTRO|PEREZ GUERRERO MIGUEL ANGEL;V. PERIFERICO|CENTRO|SALGADO RENDON CYNTHIA KAREN;V. PERIFERICO|CENTRO|MARTINEZ HERNANDEZ LEOBARDO;AUSTROMEX SAN BARTOLO|NORTE|IBARRA RAMOS OSCAR;AUSTROMEX SAN BARTOLO|NORTE|ANTONIO MARTINEZ GAUDENCIO;GUIAS POLANCO|NORTE|ESTEBAN REYES CARRERA;GUIAS POLANCO|NORTE|CRUZ VALDEZ HIDALGO;POLYMERSHAPES NAUCALPAN|NORTE|FERNADO LOPEZ AVILES;POLYMERSHAPES NAUCALPAN|NORTE|RAMIREZ CRUZ DAMARIS ITZEL;POLYMERSHAPES NAUCALPAN|NORTE|CAMARILLO HERNANDEZ EDGAR ARMANDO;PREDIO SATELITE|NORTE|MARTIN SOLIS LEIVA`.split(";").map(x=>{const[s,z,n]=x.split("|");return{s,z,n}});
+// Pregunta: [tema, texto, opciones, índice correcto, capacitación si falla]
+const Q=[
+["Acceso y garita","¿Qué debes confirmar en el acceso y la garita?",["Que la pluma y el control de acceso funcionen, y que solo ingrese personal autorizado","Que la garita esté cerrada con llave","Que entren visitas sin registro si son conocidas"],0,"Control de accesos y llenado de bitácora"],
+["Cerco perimetral","Encuentras un hueco en el cerco. ¿Qué haces?",["Lo anoto al final del turno","Reporto de inmediato cualquier daño","Lo tapo con una caja y sigo mi ronda"],1,"Rondines perimetrales y reporte inmediato"],
+["Cámaras","¿Qué verificas en las cámaras de vigilancia?",["Solo que estén prendidas","Que estén encendidas, bien orientadas, sin obstrucciones y sin puntos ciegos","Que el monitor tenga buena imagen de día"],1,"Operación y cobertura de CCTV"],
+["Iluminación","¿Qué haces si una luminaria del perímetro no funciona?",["Nada, hay cámaras","Lo reporto, porque genera puntos ciegos","Espero a que amanezca"],1,"Detección de riesgos por iluminación"],
+["Ventanas","Al revisar ventanas, ¿qué es correcto?",["Deben estar cerradas y con seguro, sin vidrios rotos ni forzados","Basta con que estén cerradas","Solo se revisan las de planta alta"],0,"Revisión de ventanas e inmuebles"],
+["Puertas y salidas","¿Cómo deben estar las salidas de emergencia?",["Bloqueadas con candado","Libres y accesibles","Cubiertas con mercancía"],1,"Protección civil y salidas de emergencia"],
+["Tablero eléctrico","Ves el tablero eléctrico abierto y con cables expuestos. ¿Qué haces?",["Lo cierro con la mano y sigo","No me acerco, aseguro el área y reporto","Lo ignoro si no es mi área"],1,"Riesgos eléctricos y reporte de incidentes"],
+["Vehículos","Hay un vehículo no registrado dentro del predio. ¿Qué haces?",["Identifico a los no autorizados, registro placas, hora y lugar, y reporto","Lo dejo pasar si parece cliente","Le pido que se vaya sin anotar nada"],0,"Control vehicular y registro de placas"]];
+const $=i=>document.getElementById(i);let me,ans,qi,t0,qt,times,dbk="roansa_res";
+const load=()=>{try{return JSON.parse(localStorage.getItem(dbk)||"[]")}catch(e){return[]}};
+let pk=null;
+function filt(){pk=null;const v=$("q").value.trim().toLowerCase();if(!v){$("sg").innerHTML="";return}
+const m=G.map((g,i)=>({g,i,w:g.n.toLowerCase().split(" ").some(x=>x.startsWith(v))||g.n.toLowerCase().startsWith(v)})).filter(x=>x.w).slice(0,4);
+$("sg").innerHTML=m.length?m.map(x=>`<div onclick="choose(${x.i})">${x.g.n}<small>${x.g.s}</small></div>`).join(""):'<div style="cursor:default;color:var(--mu)">No encontrado, revisa tu nombre</div>'}
+function choose(i){pk=i;$("q").value=G[i].n;$("sg").innerHTML=""}
+const PIN="Roansa2026";let AUTH=false;
+function tab(n){if(n==2&&!AUTH){if(prompt("Clave de supervisor:")!==PIN)return;AUTH=true}$("s1").classList.toggle("hide",n!=1);$("s2").classList.toggle("hide",n!=2);$("t1").className=n==1?"on":"";$("t2").className=n==2?"on":"";if(n==2)panel()}
+function login(){if(pk===null)return;me=G[pk];$("i-n").textContent=me.n;$("i-s").textContent=me.s;$("i-z").textContent=me.z;
+$("i-h").textContent=new Date().toLocaleString("es-MX",{dateStyle:"full",timeStyle:"short"});$("v-login").classList.add("hide");$("v-info").classList.remove("hide")}
+function startQ(){vid.pause();ans=[];times=[];qi=0;$("v-info").classList.add("hide");$("v-quiz").classList.remove("hide");t0=Date.now();show()}
+let pick=null;
+function show(){const q=Q[qi];pick=null;qt=Date.now();$("pb").style.width=(qi/Q.length*100)+"%";$("qc").textContent=`Pregunta ${qi+1} de ${Q.length} · ${q[0]}`;$("qt").textContent=q[1];
+$("qo").innerHTML=q[2].map((o,i)=>`<button class="opt" onclick="sel(${i},this)">${o}</button>`).join("");$("nx").textContent=qi==Q.length-1?"Terminar":"Siguiente"}
+function sel(i,b){pick=i;document.querySelectorAll(".opt").forEach(x=>x.classList.remove("sel"));b.classList.add("sel")}
+function next(){if(pick===null)return;ans.push(pick);times.push((Date.now()-qt)/1000);if(++qi<Q.length)show();else finish()}
+function verdict(p,sec){return p>=88?["Apto","var(--ok)","Resultado sólido. Reforzar con simulacros periódicos."]:p>=63?["Apto con refuerzo","var(--wa)","Puede operar, pero requiere reforzar los temas marcados en rojo."]:["No apto: capacitar","var(--red)","Debe repetir la capacitación y la evaluación antes de cubrir el servicio."]}
+function finish(){const ok=ans.map((a,i)=>a==Q[i][3]),sc=ok.filter(Boolean).length,tot=(Date.now()-t0)/1000,p=sc/Q.length*100;
+const r={n:me.n,s:me.s,z:me.z,f:new Date().toISOString(),sc,tot:Math.round(tot),ok,times:times.map(x=>Math.round(x))};
+try{const d=load();d.push(r);localStorage.setItem(dbk,JSON.stringify(d))}catch(e){}
+$("v-quiz").classList.add("hide");$("v-res").classList.remove("hide");$("v-res").innerHTML=dash(r);LAST=r;if(r.sc==Q.length)fx()}
+const mm=s=>Math.floor(s/60)+"m "+String(s%60).padStart(2,"0")+"s";
+function dash(r){const p=r.sc/Q.length*100,v=verdict(p),C=2*Math.PI*45,fail=Q.filter((q,i)=>!r.ok[i]);const mx=Math.max(...r.times,1);
+return`${r.sc==Q.length?CEL:""}<div class="card"><h2>Resultados · ${r.n}</h2><div style="color:var(--mu);font-size:13px">${r.s} · Zona ${r.z}</div>
+<div style="display:flex;align-items:center;gap:16px;margin-top:12px"><svg width="110" height="110" viewBox="0 0 110 110"><circle cx="55" cy="55" r="45" fill="none" stroke="#2a2a31" stroke-width="12"/><circle cx="55" cy="55" r="45" fill="none" stroke="${v[1]}" stroke-width="12" stroke-dasharray="${C*p/100} ${C}" transform="rotate(-90 55 55)"/><text x="55" y="62" text-anchor="middle" fill="#fff" font-size="22" font-weight="700">${r.sc}/${Q.length}</text></svg>
+<div><span class="pill" style="background:${v[1]}">${v[0]}</span><p style="margin:8px 0 0;font-size:13px">${v[2]}</p><p style="margin:4px 0 0;color:var(--mu);font-size:13px">Tiempo total: ${mm(r.tot)}</p></div></div></div>
+<div class="card"><h2>Resultado por tema</h2>${Q.map((q,i)=>`<div class="row"><span class="n">${q[0]}</span><div class="bar"><i style="width:100%;background:${r.ok[i]?"var(--ok)":"var(--red)"}"></i></div><span>${r.ok[i]?"✔":"✘"}</span></div>`).join("")}</div>
+<div class="card"><h2>Tiempo por pregunta</h2>${Q.map((q,i)=>`<div class="row"><span class="n">${q[0]}</span><div class="bar"><i style="width:${r.times[i]/mx*100}%;background:var(--wa)"></i></div><span>${r.times[i]}s</span></div>`).join("")}</div>
+<div class="card"><h2>Capacitación recomendada</h2>${fail.length?"<ul style='padding-left:18px;margin:0'>"+fail.map(q=>`<li style="margin:6px 0">${q[4]}</li>`).join("")+"</ul>":"Sin temas pendientes. Mantener el repaso mensual."}</div>
+<button onclick="dl()">Descargar mis resultados (imagen)</button><button class="g" onclick="location.reload()">Volver al inicio</button>`}
+function panel(){const d=load();if(!d.length){$("panel").innerHTML='<div class="card">Aún no hay evaluaciones registradas en este dispositivo.</div>';return}
+const avg=d.reduce((a,r)=>a+r.sc,0)/d.length,at=d.reduce((a,r)=>a+r.tot,0)/d.length;
+$("panel").innerHTML=`<div class="card"><h2>Resumen general</h2><div class="grid"><div class="box"><span>Evaluaciones</span><b>${d.length}</b></div><div class="box"><span>Promedio</span><b>${avg.toFixed(1)}/${Q.length}</b></div><div class="box"><span>Tiempo promedio</span><b>${mm(Math.round(at))}</b></div><div class="box"><span>Aptos</span><b>${d.filter(r=>r.sc/Q.length>=.63).length}/${d.length}</b></div></div></div>
+<div class="card"><h2>Aciertos por tema</h2>${Q.map((q,i)=>{const a=d.filter(r=>r.ok[i]).length/d.length*100;return`<div class="row"><span class="n">${q[0]}</span><div class="bar"><i style="width:${a}%;background:${a>=70?"var(--ok)":"var(--red)"}"></i></div><span>${Math.round(a)}%</span></div>`}).join("")}<p style="font-size:12px;color:var(--mu)">En rojo: temas a reforzar con todo el grupo.</p></div>
+<div class="card sc"><h2>Detalle</h2><table><tr><th>Guardia</th><th>Servicio</th><th>Zona</th><th>Pts</th><th>Tiempo</th></tr>${d.map(r=>`<tr><td>${r.n}</td><td>${r.s}</td><td>${r.z}</td><td>${r.sc}/${Q.length}</td><td>${mm(r.tot)}</td></tr>`).join("")}</table>
+<button onclick="csv()">Descargar CSV</button></div>`}
+function csv(){const d=load(),t="Guardia,Servicio,Zona,Fecha,Puntos,Segundos\n"+d.map(r=>[r.n,r.s,r.z,r.f,r.sc,r.tot].join(",")).join("\n");const a=document.createElement("a");a.href="data:text/csv;charset=utf-8,"+encodeURIComponent(t);a.download="roansa_resultados.csv";a.click()}
+
+const CEL=`<div class="card cel"><div class="sir"><i></i><i></i></div><h2>¡Felicidades!</h2><div style="font-size:30px;color:#ffd24a">★★★★★</div><p style="margin:8px 0 0">Completaste la capacitación al 100 %. Tu desempeño fue excelente. Sigue mejorando. Agradecemos tu atención. ¡Que tengas una excelente tarde!</p></div>`;
+function fx(){try{const a=new(window.AudioContext||window.webkitAudioContext)();[0,1,2,3,4,5].forEach(i=>{const o=a.createOscillator(),g=a.createGain();o.frequency.value=i%2?620:880;g.gain.value=.08;o.connect(g);g.connect(a.destination);o.start(a.currentTime+i*.3);o.stop(a.currentTime+i*.3+.28)})}catch(e){}
+for(let i=0;i<45;i++){const s=document.createElement("span");s.className="star";s.textContent="★";s.style.cssText=`left:${Math.random()*100}vw;font-size:${14+Math.random()*22}px;color:${["#ffd24a","#e11","#fff","#ffb300"][i%4]};animation-duration:${3+Math.random()*3}s;animation-delay:${Math.random()*2}s`;document.body.appendChild(s);setTimeout(()=>s.remove(),8000)}}
+function img(r){const c=document.createElement("canvas");c.width=800;c.height=1180;const x=c.getContext("2d");x.fillStyle="#0b0b0d";x.fillRect(0,0,800,1180);
+const T=(pts,col)=>{x.fillStyle=col;x.beginPath();pts.forEach((q,i)=>i?x.lineTo(40+q[0]*.1,30+q[1]*.1):x.moveTo(40+q[0]*.1,30+q[1]*.1));x.fill()};
+T([[140,2],[0,245],[284,245]],"#c9c9cc");T([[140,2],[422,2],[284,245]],"#c4161f");T([[0,245],[284,245],[147,485]],"#c4161f");T([[284,245],[425,485],[147,485]],"#c9c9cc");
+x.textBaseline="alphabetic";x.font="bold 40px sans-serif";x.fillStyle="#c4161f";x.fillText("ROA",100,62);x.fillStyle="#c9c9cc";x.fillText("NSA",100+x.measureText("ROA").width,62);x.font="14px sans-serif";x.fillText("SEGURIDAD PRIVADA",100,82);
+const p=r.sc/Q.length*100,col=p>=88?"#2fbf71":p>=63?"#e8a317":"#d11f2a",v=verdict(p);
+x.fillStyle="#f2f2f2";x.font="bold 28px sans-serif";x.fillText(r.n,40,150);x.fillStyle="#9a9aa5";x.font="20px sans-serif";x.fillText(r.s+" · Zona "+r.z,40,184);x.fillText(new Date(r.f).toLocaleString("es-MX",{dateStyle:"long",timeStyle:"short"}),40,214);
+x.lineWidth=18;x.strokeStyle="#2a2a31";x.beginPath();x.arc(150,330,70,0,7);x.stroke();x.strokeStyle=col;x.beginPath();x.arc(150,330,70,-Math.PI/2,-Math.PI/2+Math.PI*2*p/100);x.stroke();
+x.fillStyle="#fff";x.font="bold 36px sans-serif";x.textAlign="center";x.fillText(r.sc+"/"+Q.length,150,343);x.textAlign="left";
+x.fillStyle=col;x.font="bold 30px sans-serif";x.fillText(v[0],270,320);x.fillStyle="#9a9aa5";x.font="20px sans-serif";x.fillText("Tiempo total: "+mm(r.tot),270,356);
+if(r.sc==Q.length){x.fillStyle="#ffd24a";x.font="26px sans-serif";x.fillText("★★★★★  Capacitación completada al 100 %",270,392)}
+x.fillStyle="#f2f2f2";x.font="bold 22px sans-serif";x.fillText("Tiempo por pregunta (verde = correcta, rojo = incorrecta)",40,470);
+const mx=Math.max(...r.times,1);Q.forEach((q,i)=>{const y=500+i*40;x.fillStyle="#cfcfd6";x.font="18px sans-serif";x.fillText(q[0],40,y+18);x.fillStyle=r.ok[i]?"#2fbf71":"#d11f2a";x.fillRect(220,y,Math.max(6,r.times[i]/mx*430),24);x.fillStyle="#fff";x.fillText(r.times[i]+" s",220+Math.max(6,r.times[i]/mx*430)+10,y+18)});
+x.fillStyle="#f2f2f2";x.font="bold 22px sans-serif";x.fillText("Capacitación recomendada",40,860);x.font="18px sans-serif";x.fillStyle="#cfcfd6";
+const f=Q.filter((q,i)=>!r.ok[i]);(f.length?f.map(q=>"• "+q[4]):["• Sin temas pendientes. Mantener el repaso mensual."]).slice(0,8).forEach((t,i)=>x.fillText(t,40,895+i*30));
+x.fillStyle="#6a6a73";x.font="14px sans-serif";x.fillText("ROANSA Seguridad Privada · Convertir lugares en espacios seguros",40,1150);return c}
+function dl(){if(!LAST)return;img(LAST).toBlob(async b=>{const f=new File([b],"resultados_roansa.png",{type:"image/png"});
+try{if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],title:"Resultados ROANSA"});return}}catch(e){if(e.name=="AbortError")return}
+const u=URL.createObjectURL(b);try{const a=document.createElement("a");a.href=u;a.download="resultados_roansa.png";a.click()}catch(e){}
+$("ov").innerHTML=`<img src="${u}"><p style="color:#ccc">Mantén presionada la imagen para guardarla o compártela.</p><button onclick="$('ov').classList.add('hide')">Cerrar</button>`;$("ov").classList.remove("hide")},"image/png")}
+if(location.hash=="#supervisor"){$("tabs").classList.remove("hide");tab(2)}
+</script></body></html>
